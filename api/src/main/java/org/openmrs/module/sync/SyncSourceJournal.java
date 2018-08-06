@@ -67,8 +67,7 @@ public class SyncSourceJournal implements SyncSource {
 		        .format(p.getValue());
 		// use getSynchronizationService to avoid logging this changes to the journal
 		Context.getService(SyncService.class).setGlobalProperty(SyncConstants.LAST_SYNC_LOCAL, sVal);
-		
-		return;
+
 	}
 	
 	/*
@@ -96,8 +95,7 @@ public class SyncSourceJournal implements SyncSource {
 		        .format(p.getValue());
 		// use getSynchronizationService to avoid logging this changes to the journal
 		Context.getService(SyncService.class).setGlobalProperty(SyncConstants.LAST_SYNC_REMOTE, sVal);
-		
-		return;
+
 	}
 	
 	// gets the 'next' SyncPoint: in case of timestamp implementation, just get current date/time
@@ -188,14 +186,12 @@ public class SyncSourceJournal implements SyncSource {
 	 */
 	public void applyDeleted(List<SyncRecord> records) throws SyncException {
 		
-		return;
 	}
 	
 	public void applyChanged(List<SyncRecord> records) throws SyncException {
 		
 		//TODO - process the changeset
 		
-		return;
 	}
 	
 	public String getSyncSourceUuid() {
@@ -204,8 +200,7 @@ public class SyncSourceJournal implements SyncSource {
 	
 	public void setSyncSourceUuid(String uuid) {
 		Context.getService(SyncService.class).setGlobalProperty(SyncConstants.PROPERTY_SERVER_UUID, uuid);
-		
-		return;
+
 	}
 	
 }
