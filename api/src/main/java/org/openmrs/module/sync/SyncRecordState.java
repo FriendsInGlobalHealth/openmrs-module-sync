@@ -54,7 +54,10 @@ public enum SyncRecordState {
     NOT_SUPPOSED_TO_SYNC, 
     
     /** record was sent to server, but server does not accept this type of record for sync'ing */
-    REJECTED;
+    REJECTED,
+
+    /** record has items that depend on other items contained in a record that has status FAILED_AND_STOPPED */
+    DEPENDS_ON_FAILED_AND_STOPPED;
     
     /**
      * Determines if a record state if final

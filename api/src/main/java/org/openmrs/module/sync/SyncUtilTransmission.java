@@ -181,7 +181,7 @@ public class SyncUtilTransmission {
 	public static SyncTransmissionResponse sendSyncTransmission(RemoteServer server, SyncTransmission transmission,
 	                                                            SyncTransmissionResponse responseInstead) {
 		SyncTransmissionResponse response = new SyncTransmissionResponse();
-		response.setErrorMessage(SyncConstants.ERROR_SEND_FAILED.toString());
+		response.setErrorMessage(SyncConstants.ERROR_SEND_FAILED);
 		response.setFileName(SyncConstants.FILENAME_SEND_FAILED);
 		response.setUuid(SyncConstants.UUID_UNKNOWN);
 		response.setState(SyncTransmissionState.FAILED);
@@ -207,7 +207,7 @@ public class SyncUtilTransmission {
 					if(toTransmit != null && toTransmit.length() > 0) {
 						response = transmitAndProcessResponse(server, responseInstead);
 					} else {
-						response.setErrorMessage(SyncConstants.ERROR_TRANSMISSION_CREATION.toString());
+						response.setErrorMessage(SyncConstants.ERROR_TRANSMISSION_CREATION);
 						response.setFileName(SyncConstants.FILENAME_NOT_CREATED);
 						response.setUuid(SyncConstants.UUID_UNKNOWN);
 						response.setState(SyncTransmissionState.TRANSMISSION_CREATION_FAILED);
@@ -227,7 +227,7 @@ public class SyncUtilTransmission {
 							response = transmitAndProcessResponse(server, transmission);
 						}
 					} else {
-						response.setErrorMessage(SyncConstants.ERROR_TRANSMISSION_CREATION.toString());
+						response.setErrorMessage(SyncConstants.ERROR_TRANSMISSION_CREATION);
 						response.setFileName(SyncConstants.FILENAME_NOT_CREATED);
 						response.setUuid(SyncConstants.UUID_UNKNOWN);
 						response.setState(SyncTransmissionState.TRANSMISSION_CREATION_FAILED);
@@ -235,7 +235,7 @@ public class SyncUtilTransmission {
 				}
 			} else {
 				// server is null
-				response.setErrorMessage(SyncConstants.ERROR_INVALID_SERVER.toString());
+				response.setErrorMessage(SyncConstants.ERROR_INVALID_SERVER);
 				response.setFileName(SyncConstants.FILENAME_INVALID_SERVER);
 				response.setUuid(SyncConstants.UUID_UNKNOWN);
 				response.setState(SyncTransmissionState.INVALID_SERVER);
@@ -263,7 +263,7 @@ public class SyncUtilTransmission {
 	 */
 	public static SyncTransmissionResponse doFullSynchronize(RemoteServer parent, ReceivingSize size, Integer maxSyncRecords) {
 		SyncTransmissionResponse response = new SyncTransmissionResponse();
-		response.setErrorMessage(SyncConstants.ERROR_TRANSMISSION_CREATION.toString());
+		response.setErrorMessage(SyncConstants.ERROR_TRANSMISSION_CREATION);
 		response.setFileName(SyncConstants.FILENAME_NOT_CREATED);
 		response.setUuid(SyncConstants.UUID_UNKNOWN);
 		response.setState(SyncTransmissionState.TRANSMISSION_CREATION_FAILED);
@@ -360,7 +360,7 @@ public class SyncUtilTransmission {
 					// no need for handling else - the correct error messages, etc have been written already
 				}
 			} else {
-				response.setErrorMessage(SyncConstants.ERROR_INVALID_SERVER.toString());
+				response.setErrorMessage(SyncConstants.ERROR_INVALID_SERVER);
 				response.setFileName(SyncConstants.FILENAME_INVALID_SERVER);
 				response.setUuid(SyncConstants.UUID_UNKNOWN);
 				response.setState(SyncTransmissionState.INVALID_SERVER);
@@ -546,7 +546,7 @@ public class SyncUtilTransmission {
 		if (parent != null) {
 			if (parent.getSyncInProgress() || SyncTask.getIsExecuting()) {
 				SyncTransmissionResponse response = new SyncTransmissionResponse();
-				response.setErrorMessage(SyncConstants.ERROR_CANNOT_RUN_PARALLEL.toString());
+				response.setErrorMessage(SyncConstants.ERROR_CANNOT_RUN_PARALLEL);
 				response.setFileName(SyncConstants.FILENAME_NOT_CREATED);
 				response.setUuid(SyncConstants.UUID_UNKNOWN);
 				response.setState(SyncTransmissionState.ERROR_CANNOT_RUN_PARALLEL);
@@ -557,7 +557,7 @@ public class SyncUtilTransmission {
 			return SyncUtilTransmission.doFullSynchronize(parent, size, maxSyncRecords);
 		} else {
 			SyncTransmissionResponse response = new SyncTransmissionResponse();
-			response.setErrorMessage(SyncConstants.ERROR_NO_PARENT_DEFINED.toString());
+			response.setErrorMessage(SyncConstants.ERROR_NO_PARENT_DEFINED);
 			response.setFileName(SyncConstants.FILENAME_NO_PARENT_DEFINED);
 			response.setUuid(SyncConstants.UUID_UNKNOWN);
 			response.setState(SyncTransmissionState.NO_PARENT_DEFINED);
